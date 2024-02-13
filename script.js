@@ -25,7 +25,7 @@ const db = [
     condition: "Excellent",
     price: "$ 1399.99",
     isOfferAccepted: true,
-    soldTime: "Sold out within 82 Minutes.",
+    soldTime: "",
     description: `This phone has several surface scratches and dings, notably some scratches in the glass on the upper left front corner and dings/chips in the metal on the bottom corners and around. This phone has several surface scratches and dings, notably some scratches in the glass on the upper left front corner and dings/chips in the metal on the bottom corners and around.`,
     accordions: [
       `$4.00 Recent drop, 23 minutes ago.`,
@@ -33,7 +33,8 @@ const db = [
     ],
     originalPrice: `(Original price: $1410.00)`,
     footerTexts: [`Cocosprinkles: 12345 (99.8%)`, `Low Trust`, `Brooklyn, NY`],
-    isStartingBid: true
+    isStartingBid: true,
+    isLockedIcon: true,
   },
   {
     badges: ['ai', 'relisted', 'instant'],
@@ -48,7 +49,7 @@ const db = [
     condition: "Excellent",
     price: "$ 699.99",
     isOfferAccepted: false,
-    soldTime: "Sold out within 82 Minutes.",
+    soldTime: "Sold out within 10 Minutes.",
     description: `This phone has several surface scratches and dings, notably some scratches in the glass on the upper left front corner and dings/chips in the metal on the bottom corners and around. This phone has several surface scratches and dings, notably some scratches in the glass on the upper left front corner and dings/chips in the metal on the bottom corners and around.`,
     accordions: [
       `$4.00 Recent drop, 23 minutes ago.`,
@@ -56,7 +57,8 @@ const db = [
     ],
     originalPrice: `(Original price: $1410.00)`,
     footerTexts: [`Cocosprinkles: 12345 (99.8%)`, `Low Trust`, `Brooklyn, NY`],
-    isStartingBid: false
+    isStartingBid: false,
+    isLockedIcon: false,
   },
   {
     badges: ['trending', 'instant', 'negotiable'],
@@ -71,7 +73,7 @@ const db = [
     condition: "Excellent",
     price: "$ 349.99",
     isOfferAccepted: true,
-    soldTime: "Sold out within 82 Minutes.",
+    soldTime: "",
     description: `This phone has several surface scratches and dings, notably some scratches in the glass on the upper left front corner and dings/chips in the metal on the bottom corners and around. This phone has several surface scratches and dings, notably some scratches in the glass on the upper left front corner and dings/chips in the metal on the bottom corners and around.`,
     accordions: [
       `$4.00 Recent drop, 23 minutes ago.`,
@@ -79,7 +81,8 @@ const db = [
     ],
     originalPrice: `(Original price: $1410.00)`,
     footerTexts: [`Cocosprinkles: 12345 (99.8%)`, `Low Trust`, `Brooklyn, NY`],
-    isStartingBid: false
+    isStartingBid: false,
+    isLockedIcon: true,
   },
   {
     badges: ['instant', 'drop', 'negotiable'],
@@ -102,7 +105,8 @@ const db = [
     ],
     originalPrice: `(Original price: $1410.00)`,
     footerTexts: [`Cocosprinkles: 12345 (99.8%)`, `Low Trust`, `Brooklyn, NY`],
-    isStartingBid: true
+    isStartingBid: true,
+    isLockedIcon: false,
   },
 ];
 
@@ -143,7 +147,8 @@ const renderProductCard = ({
   accordions,
   originalPrice,
   footerTexts,
-  isStartingBid
+  isStartingBid,
+  isLockedIcon
 }) => {
 
   const isDescLong = description.length >= 180;
@@ -185,7 +190,7 @@ const renderProductCard = ({
           </div>
           <div>
             <div class="spec-img-container">
-              <img src="./images/specs-img3.svg" alt="" />
+              <img src="./images/specs-img${isLockedIcon ? '4' : '3'}.svg" alt="" />
             </div>
             <span>${network}</span>
           </div>
@@ -195,7 +200,7 @@ const renderProductCard = ({
             </div>
             <span>${condition}</span>
           </div>
-          <span${soldTime}</span>
+          <span>${soldTime|| '&nbsp;'}</span>
         </div>
         <div class="product-price-and-specs">
           <span class="ppas-price">${price}</span>
@@ -245,7 +250,7 @@ const renderProductCard = ({
             </div>
             <div>
               <div class="spec-img-container">
-                <img src="./images/specs-img3.svg" alt="" />
+                <img src="./images/specs-img${isLockedIcon ? '4' : '3'}.svg" alt="" />
               </div>
               <span>${network}</span>
             </div>
@@ -255,7 +260,7 @@ const renderProductCard = ({
               </div>
               <span>${condition}</span>
             </div>
-            <span${soldTime}</span>
+            <span>${soldTime}</span>
           </div>
         </div>
         <p class="product-details-para">${description.substring(0, 180)}${isDescLong ? '[...]' : ''}</p>
