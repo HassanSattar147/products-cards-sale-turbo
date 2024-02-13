@@ -216,7 +216,7 @@ img {
 .products-specs > div {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 5px;
 }
 .products-specs .spec-img-container {
   width: 15px;
