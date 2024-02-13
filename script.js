@@ -14,11 +14,11 @@ const validBadgesKeys = Object.keys(BADGE_CONFIG);
 const db = [
   {
     badges: ['ai', 'instant', 'negotiable'],
-    img: "mobile.png",
+    img: "0.png",
     timeAgo: '20 minutes ago',
     imagesCount: 5,
     title: "iPhone SE 2022",
-    type: "Not working (other)",
+    type: "Brand New",
     tooltip: '"Device has a cracked screen with a good LCD and is fully functional. SOLD AS IS. NO RETURNS. Please reference EXAMPLE photos and listing for further details."',
     storage: "256 GB",
     network: "Consumer Cellular",
@@ -32,7 +32,8 @@ const db = [
       `109.00 Total drop overtime`
     ],
     originalPrice: `(Original price: $1410.00)`,
-    footerTexts: [`Cocosprinkles: 12345 (99.8%)`, `Low Trust`, `Brooklyn, NY`]
+    footerTexts: [`Cocosprinkles: 12345 (99.8%)`, `Low Trust`, `Brooklyn, NY`],
+    isStartingBid: true
   },
   {
     badges: ['ai', 'relisted', 'instant'],
@@ -54,7 +55,8 @@ const db = [
       `109.00 Total drop overtime`
     ],
     originalPrice: `(Original price: $1410.00)`,
-    footerTexts: [`Cocosprinkles: 12345 (99.8%)`, `Low Trust`, `Brooklyn, NY`]
+    footerTexts: [`Cocosprinkles: 12345 (99.8%)`, `Low Trust`, `Brooklyn, NY`],
+    isStartingBid: false
   },
   {
     badges: ['trending', 'instant', 'negotiable'],
@@ -62,7 +64,7 @@ const db = [
     timeAgo: '10 minutes ago',
     imagesCount: 5,
     title: "iPhone SE 2022",
-    type: "Not working (other)",
+    type: "Used",
     tooltip: '"Device has a cracked screen with a good LCD and is fully functional. SOLD AS IS. NO RETURNS. Please reference EXAMPLE photos and listing for further details."',
     storage: "256 GB",
     network: "Consumer Cellular",
@@ -76,7 +78,8 @@ const db = [
       `109.00 Total drop overtime`
     ],
     originalPrice: `(Original price: $1410.00)`,
-    footerTexts: [`Cocosprinkles: 12345 (99.8%)`, `Low Trust`, `Brooklyn, NY`]
+    footerTexts: [`Cocosprinkles: 12345 (99.8%)`, `Low Trust`, `Brooklyn, NY`],
+    isStartingBid: false
   },
   {
     badges: ['instant', 'drop', 'negotiable'],
@@ -84,7 +87,7 @@ const db = [
     timeAgo: '30 minutes ago',
     imagesCount: 10,
     title: "iPhone SE 2022",
-    type: "Not working (other)",
+    type: "Used",
     tooltip: '"Device has a cracked screen with a good LCD and is fully functional. SOLD AS IS. NO RETURNS. Please reference EXAMPLE photos and listing for further details."',
     storage: "256 GB",
     network: "Consumer Cellular",
@@ -98,7 +101,8 @@ const db = [
       `109.00 Total drop overtime`
     ],
     originalPrice: `(Original price: $1410.00)`,
-    footerTexts: [`Cocosprinkles: 12345 (99.8%)`, `Low Trust`, `Brooklyn, NY`]
+    footerTexts: [`Cocosprinkles: 12345 (99.8%)`, `Low Trust`, `Brooklyn, NY`],
+    isStartingBid: true
   },
 ];
 
@@ -139,6 +143,7 @@ const renderProductCard = ({
   accordions,
   originalPrice,
   footerTexts,
+  isStartingBid
 }) => {
 
   const isDescLong = description.length >= 180;
@@ -154,7 +159,7 @@ const renderProductCard = ({
       <div>
         <span class="minutes-ago-text">${timeAgo}</span>
         <div class="num-of-pics-card">
-          <img src="./images/camera1.svg" alt="" />
+          <img src="./images/camera-icon.svg" alt="" />
           <span>${imagesCount}</span>
         </div>
       </div>
@@ -173,22 +178,29 @@ const renderProductCard = ({
       <div class="second-row-flex">
         <div class="products-specs">
           <div>
-            <img src="./images/specs-img.svg" alt="specs icon" />
+            <div class="spec-img-container">
+              <img src="./images/specs-img.svg" alt="" />
+            </div>
             <span>${storage}</span>
           </div>
           <div>
-            <img src="./images/specs-img2.svg" alt="specs icon" />
+            <div class="spec-img-container">
+              <img src="./images/specs-img3.svg" alt="" />
+            </div>
             <span>${network}</span>
           </div>
           <div>
-            <img src="./images/specs-img3.svg" alt="specs icon" />
+            <div class="spec-img-container">
+              <img src="./images/specs-img2.svg" alt="" />
+            </div>
             <span>${condition}</span>
           </div>
           <span${soldTime}</span>
         </div>
         <div class="product-price-and-specs">
-          <span>${price}</span>
-          <span>${isOfferAccepted ? 'Offers Accepted' : ''}</span>
+          <span class="ppas-price">${price}</span>
+          <span class="ppas-starting">${isStartingBid ? '(Starting Bid)' : ''}</span>
+          <span class="ppas-offers">${isOfferAccepted ? 'Offers Accepted' : ''}</span>
         </div>
       </div>
       <p class="product-details-para">${description.substring(0, 180)}${isDescLong ? '[...]' : ''}</p>
@@ -197,7 +209,7 @@ const renderProductCard = ({
       <div class="left">
         <div class="product-image" style="background-image: url(./images/${img});"></div>
         <div class="num-of-pics-card">
-          <img src="./images/camera1.svg" alt="" />
+          <img src="./images/camera-icon.svg" alt="" />
           <span>${imagesCount}</span>
         </div>
         <div class="badges-container">
@@ -218,22 +230,29 @@ const renderProductCard = ({
           </div>
           <span class="minutes-ago-text">2 minutes ago</span>
           <div class="product-price-and-specs">
-            <span>${price}</span>
-            <span>${isOfferAccepted ? 'Offers Accepted' : ''}</span>
+            <span class="ppas-price">${price}</span>
+            <span class="ppas-starting">${isStartingBid ? '(Starting Bid)' : ''}</span>
+            <span class="ppas-offers">${isOfferAccepted ? 'Offers Accepted' : ''}</span>
           </div>
         </div>
         <div class="second-row-flex">
           <div class="products-specs">
             <div>
-              <img src="./images/specs-img.svg" alt="specs icon" />
+              <div class="spec-img-container">
+                <img src="./images/specs-img.svg" alt="" />
+              </div>
               <span>${storage}</span>
             </div>
             <div>
-              <img src="./images/specs-img2.svg" alt="specs icon" />
+              <div class="spec-img-container">
+                <img src="./images/specs-img3.svg" alt="" />
+              </div>
               <span>${network}</span>
             </div>
             <div>
-              <img src="./images/specs-img3.svg" alt="specs icon" />
+              <div class="spec-img-container">
+                <img src="./images/specs-img2.svg" alt="" />
+              </div>
               <span>${condition}</span>
             </div>
             <span${soldTime}</span>

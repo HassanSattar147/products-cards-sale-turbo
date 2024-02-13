@@ -218,6 +218,10 @@ img {
   align-items: center;
   gap: 8px;
 }
+.products-specs .spec-img-container {
+  width: 15px;
+  text-align: right;
+}
 .products-specs > div span {
   font-size: 13px;
   font-weight: 500;
@@ -233,12 +237,18 @@ img {
   align-items: flex-end;
   gap: 2px;
 }
-.product-price-and-specs span:nth-child(1) {
+.product-price-and-specs .ppas-price {
   font-size: 21px;
   font-weight: 500;
   color: #0091d7;
 }
-.product-price-and-specs span:nth-child(2) {
+.product-price-and-specs .ppas-starting {
+  font-size: 12px;
+  font-weight: 500;
+  color: #0091d7;
+  margin-bottom: 3px;
+}
+.product-price-and-specs .ppas-offers {
   font-size: 12px;
   font-weight: 500;
   color: #ed7913;
