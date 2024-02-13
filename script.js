@@ -168,7 +168,7 @@ const renderProductCard = ({
       <span class="product-title">${title}</span>
       <div class="not-working-outer">
         <div class="not-working-inner">
-          <span>${type}</span>
+          ${type}
         </div>
         <span class="tooltip">
           <span class="qm">?</span>
@@ -221,7 +221,7 @@ const renderProductCard = ({
           <span class="product-title">${title}</span>
           <div class="not-working-outer">
             <div class="not-working-inner">
-              <span>${type}</span>
+              ${type}
             </div>
             <span class="tooltip">
               <span class="qm">?</span>
@@ -231,7 +231,7 @@ const renderProductCard = ({
           <span class="minutes-ago-text">2 minutes ago</span>
           <div class="product-price-and-specs">
             <span class="ppas-price">${price}</span>
-            <span class="ppas-starting">${isStartingBid ? '(Starting Bid)' : ''}</span>
+            ${isStartingBid ? '<span class="ppas-starting">(Starting Bid)</span>' : ''}
             <span class="ppas-offers">${isOfferAccepted ? 'Offers Accepted' : ''}</span>
           </div>
         </div>
