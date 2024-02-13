@@ -41,6 +41,7 @@ img {
 }
 .card-inner-container {
   padding: 10px;
+  padding-bottom: 16px;
 }
 
 .first-row {
@@ -62,7 +63,7 @@ img {
 }
 
 .product-badge {
-  padding: 5px 10px;
+  padding: 4px 6px;
   border-radius: 50px;
   font-family: "Inter", sans-serif;
   display: flex;
@@ -187,10 +188,11 @@ img {
   margin-top: 8px;
 }
 .not-working-inner {
-  padding: 2px 10px 2px 10px;
+  padding: 2px 8px;
   background: #a7baca;
   border-radius: 50px;
   font-size: 13px;
+  line-height: 14px;
   color: #fff;
   font-weight: 500;
 }
@@ -228,7 +230,7 @@ img {
 }
 .products-specs > span {
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 400;
   color: #c91414;
 }
 .product-price-and-specs {
@@ -255,7 +257,7 @@ img {
 }
 
 .third-container {
-  padding-top: 16px;
+  padding-top: 9px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -263,14 +265,14 @@ img {
 .product-details-para {
   color: #808080;
   font-size: 13px;
-  margin-top: 5px;
+  margin-top: 16px;
 }
 .submit-offer-container {
   background: #cfe1f040;
   display: flex;
   align-items: center;
-  gap: 4px;
-  padding: 8px 10px;
+  gap: 8px;
+  padding: 7px 10px;
   border-radius: 6px;
 }
 .submit-offer-container p {
@@ -286,7 +288,9 @@ img {
 .price-drops {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+}
+.price-drops > div:first-child {
+  margin-bottom: 6px;
 }
 .price-drops > div {
   display: flex;
@@ -303,6 +307,7 @@ img {
 .price-drop-and-original span {
   color: #979797;
   font-size: 12px;
+  margin-top: 1px;
 }
 
 .product-card-footer {
@@ -321,11 +326,14 @@ img {
   align-items: center;
   gap: 5px;
 }
+.low-trust > img {
+  width: 15px;
+  height: 15px;
+}
 .low-trust span {
   font-size: 11px;
   color: #808080;
   font-weight: 700;
-  line-height: 1em;
 }
 
 /* Responsiveness */

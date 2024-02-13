@@ -260,7 +260,7 @@ const renderProductCard = ({
               </div>
               <span>${condition}</span>
             </div>
-            <span>${soldTime}</span>
+            <span>${soldTime|| '&nbsp;'}</span>
           </div>
         </div>
         <p class="product-details-para">${description.substring(0, 180)}${isDescLong ? '[...]' : ''}</p>
@@ -288,9 +288,9 @@ const renderProductCard = ({
   }).join('\n')
     }
           <div class="price-drop-and-original">
-            <span class="original-price"
-              >${originalPrice}</span
-            >
+            <span class="original-price">
+              ${originalPrice}
+            </span>
           </div>
         </div>
         <div class="message-button">
