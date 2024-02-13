@@ -194,7 +194,7 @@ img {
   font-size: 13px;
   line-height: 14px;
   color: #fff;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .not-working-outer > div:nth-child(2) span {
@@ -230,7 +230,7 @@ img {
 }
 .products-specs > span {
   font-size: 13px;
-  font-weight: 400;
+  font-weight: 500;
   color: #c91414;
 }
 .product-price-and-specs {
