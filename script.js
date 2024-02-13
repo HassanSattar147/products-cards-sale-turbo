@@ -165,7 +165,7 @@ const renderProductCard = ({
       </div>
     </div>
     <div class="second-row desktop-second-row">
-      <span class="product-title"${title}</span>
+      <span class="product-title">${title}</span>
       <div class="not-working-outer">
         <div class="not-working-inner">
           <span>${type}</span>
@@ -199,7 +199,7 @@ const renderProductCard = ({
         </div>
         <div class="product-price-and-specs">
           <span class="ppas-price">${price}</span>
-          <span class="ppas-starting">${isStartingBid ? '(Starting Bid)' : ''}</span>
+          ${isStartingBid ? '<span class="ppas-starting">(Starting Bid)</span>' : ''}
           <span class="ppas-offers">${isOfferAccepted ? 'Offers Accepted' : ''}</span>
         </div>
       </div>

@@ -62,7 +62,7 @@ img {
 }
 
 .product-badge {
-  padding: 5px 10px;
+  padding: 2px 10px;
   border-radius: 50px;
   font-family: "Inter", sans-serif;
   display: flex;
@@ -157,21 +157,21 @@ img {
   color: #008000;
 }
 .num-of-pics-card {
-  width: 40px;
+  min-width: 40px;
   display: flex;
+  align-items: center;
   align-items: flex-end;
-  gap: 3px;
-  padding: 5px;
-  border-radius: 8px;
-  background: #fdfdfd;
-  border: 1px solid #a7a7a7;
+  gap: 5px;
+  padding: 3px 5px;
+  border-radius: 5px;
+  background: #f9fafb;
+  border: 1.5px solid #a7a7a7;
 }
 .num-of-pics-card img {
-  width: 14px;
+  width: 16px;
 }
 .num-of-pics-card span {
   font-size: 12px;
-  line-height: 1em;
 }
 .second-row {
   padding-top: 10px;
@@ -337,7 +337,9 @@ img {
 /* tooltip */
 .tooltip {
   position: relative;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .tooltip .qm {
@@ -346,10 +348,10 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 25px;
-  height: 25px;
+  width: 15px;
+  height: 15px;
   border-radius: 100%;
-  font-size: 14px;
+  font-size: 12px;
   user-select: none;
 }
 
@@ -440,6 +442,7 @@ img {
     display: flex;
     flex-direction: column;
     gap: 16px;
+    padding-top: 0;
   }
   .mobile-first-row {
     display: flex;
