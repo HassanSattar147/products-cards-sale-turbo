@@ -4,7 +4,7 @@ const BADGE_CONFIG = {
   ai: "AI-Recommended",
   trending: "Trending Seller",
   relisted: "Relisted",
-  instant: "Instnat buy",
+  instant: "Instant buy",
   drop: "Price Drop",
   negotiable: "Negotiable Finds",
 }
@@ -34,12 +34,13 @@ const db = [
     description: `This phone has several surface scratches and dings, notably some scratches in the glass on the upper left front corner and dings/chips in the metal on the bottom corners and around. This phone has several surface scratches and dings, notably some scratches in the glass on the upper left front corner and dings/chips in the metal on the bottom corners and around.`,
     accordions: [
       `$4.00 Recent drop, 23 minutes ago.`,
-      `109.00 Total drop overtime`
+      `$109.00 Total drop overtime`
     ],
     originalPrice: `(Original price: $1410.00)`,
     footerTexts: [`Cocosprinkles: 12345 (99.8%)`, `Low Trust`, `Brooklyn, NY`],
-    isStartingBid: false,
+    isStartingBid: true,
     isLockedIcon: true,
+    info: `Some extra text here!`,
   },
   {
     badges: ['ai', 'relisted', 'instant'],
@@ -59,12 +60,13 @@ const db = [
     description: `This phone has several surface scratches and dings, notably some scratches in the glass on the upper left front corner and dings/chips in the metal on the bottom corners and around. This phone has several surface scratches and dings, notably some scratches in the glass on the upper left front corner and dings/chips in the metal on the bottom corners and around.`,
     accordions: [
       `$4.00 Recent drop, 23 minutes ago.`,
-      `109.00 Total drop overtime`
+      `$109.00 Total drop overtime`
     ],
     originalPrice: `(Original price: $1410.00)`,
     footerTexts: [`Cocosprinkles: 12345 (99.8%)`, `Low Trust`, `Brooklyn, NY`],
     isStartingBid: false,
     isLockedIcon: false,
+    info: `Submit your best offer - This Item has been relisted, seller is eager to sell it.`,
   },
   {
     badges: ['trending', 'instant', 'negotiable'],
@@ -84,12 +86,13 @@ const db = [
     description: `This phone has several surface scratches and dings, notably some scratches in the glass on the upper left front corner and dings/chips in the metal on the bottom corners and around. This phone has several surface scratches and dings, notably some scratches in the glass on the upper left front corner and dings/chips in the metal on the bottom corners and around.`,
     accordions: [
       `$4.00 Recent drop, 23 minutes ago.`,
-      `109.00 Total drop overtime`
+      `$109.00 Total drop overtime`
     ],
     originalPrice: `(Original price: $1410.00)`,
     footerTexts: [`Cocosprinkles: 12345 (99.8%)`, `Low Trust`, `Brooklyn, NY`],
     isStartingBid: false,
     isLockedIcon: true,
+    info: `Submit your best offer - This Item has been relisted, seller is eager to sell it. Some extra text here!`,
   },
   {
     badges: ['instant', 'drop', 'negotiable'],
@@ -109,12 +112,13 @@ const db = [
     description: `This phone has several surface scratches and dings, notably some scratches in the glass on the upper left front corner and dings/chips in the metal on the bottom corners and around. This phone has several surface scratches and dings, notably some scratches in the glass on the upper left front corner and dings/chips in the metal on the bottom corners and around.`,
     accordions: [
       `$4.00 Recent drop, 23 minutes ago.`,
-      `109.00 Total drop overtime`
+      `$109.00 Total drop overtime`
     ],
     originalPrice: `(Original price: $1410.00)`,
     footerTexts: [`Cocosprinkles: 12345 (99.8%)`, `Low Trust`, `Brooklyn, NY`],
     isStartingBid: true,
     isLockedIcon: false,
+    info: `Submit your best offer - This Item has been relisted, seller is eager to sell it.`,
   },
 ];
 
@@ -153,7 +157,8 @@ const renderProductCard = ({
   footerTexts,
   isStartingBid,
   isLockedIcon,
-  availableAmount
+  availableAmount,
+  info
 }) => {
 
   const DESC_LIMIT = window.innerWidth > MBL_BREAK_POINT ? DESC_LIMIT_PC : DESC_LIMIT_MB;
@@ -210,7 +215,7 @@ const renderProductCard = ({
       ? `<span>${soldTime || '&nbsp;'}</span>`
       : availableAmount == 1
         ? `<span>&nbsp;</span>`
-        : `<span class="color-gray">${availableAmount} available</span>`
+        : `<span class="color-gray">${availableAmount} Available</span>`
     }
           
         </div>
@@ -220,7 +225,7 @@ const renderProductCard = ({
           <span class="ppas-offers">${isOfferAccepted ? 'Offers Accepted' : ''}</span>
         </div>
       </div>
-      <p class="product-details-para">${description.substring(0, DESC_LIMIT_PC)}${isDescLong ? '[...]' : ''}</p>
+      <p class="product-details-para">"${description.substring(0, DESC_LIMIT_PC)}${isDescLong ? ' [...]' : ''}"</p>
     </div>
     <div class="mobile-first-row">
       <div class="left">
@@ -276,20 +281,17 @@ const renderProductCard = ({
       ? `<span>${soldTime || '&nbsp;'}</span>`
       : availableAmount == 1
         ? `<span>&nbsp;</span>`
-        : `<span class="color-gray">${availableAmount} available</span>`
+        : `<span class="color-gray">${availableAmount} Available</span>`
     }
           </div>
         </div>
-        <p class="product-details-para">${description.substring(0, DESC_LIMIT_MB)}${isDescLong ? '[...]' : ''}</p>
+        <p class="product-details-para">"${description.substring(0, DESC_LIMIT_MB)}${isDescLong ? ' [...]' : ''}"</p>
       </div>
     </div>
     <div class="third-container">
       <div class="submit-offer-container">
         <img src="./images/lightbulb.svg" alt="" />
-        <p>
-          Submit your best offer - This Item has been relisted, seller
-          is eager to sell it.
-        </p>
+        <p>${info}</p>
       </div>
       <div class="price-drop-outer">
         <div class="price-drops">
