@@ -135,9 +135,6 @@ const getAllProductBadgesHTML = (types) => {
   return types.map(getOneProductBadge).join('\n');
 }
 
-const tempBadges = ['ai', 'trending', 'relisted'];
-// const tempBadges = ['instant', 'drop', 'negotiable'];
-
 const renderProductCard = ({
   badges,
   img,
