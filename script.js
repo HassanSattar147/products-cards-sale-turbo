@@ -11,7 +11,7 @@ const BADGE_CONFIG = {
 
 const validBadgesKeys = Object.keys(BADGE_CONFIG);
 
-const MBL_BREAK_POINT = 700;
+const MBL_BREAK_POINT = 350;
 const DESC_LIMIT_PC = 180;
 const DESC_LIMIT_MB = 100;
 
