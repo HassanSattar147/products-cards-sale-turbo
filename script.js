@@ -38,7 +38,7 @@ const db = [
     ],
     originalPrice: `(Original price: $1410.00)`,
     footerTexts: [`Cocosprinkles: 12345 (99.8%)`, `Low Trust`, `Brooklyn, NY`],
-    isStartingBid: false,
+    isStartingBid: true,
     isLockedIcon: false,
     info: `Submit your best offer - This Item has been relisted, seller is eager to sell it.`,
   },

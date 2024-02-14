@@ -245,17 +245,23 @@ img {
   font-size: 21px;
   font-weight: 500;
   color: #0091d7;
+  text-align: right;
+  width: 100%;
 }
 .product-price-and-specs .ppas-starting {
   font-size: 12px;
   font-weight: 500;
   color: #0091d7;
   margin-bottom: 3px;
+  text-align: right;
+  width: 100%;
 }
 .product-price-and-specs .ppas-offers {
   font-size: 12px;
   font-weight: 500;
   color: #ed7913;
+  text-align: right;
+  width: 100%;
 }
 
 .third-container {
@@ -505,7 +511,7 @@ img {
   }
   .cards-grid-container {
     grid-template-columns: 1fr;
-    padding: 0 10px;
+    padding: 0 5px;
     gap: 16px;
   }
   .desktop-second-row,
@@ -524,7 +530,7 @@ img {
     gap: 10px;
   }
   .mobile-first-row .product-image {
-    width: 120px;
+    width: 115px;
   }
   .mobile-first-row .left {
     display: flex;
@@ -535,7 +541,7 @@ img {
   .title-and-prices {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    
   }
   .product-price-and-specs {
     align-items: flex-start;
@@ -551,8 +557,11 @@ img {
   }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 410px) {
   .second-row.mobile-second-row {
+    gap: 6px;
+  }
+  .second-row.mobile-second-row .title-and-prices {
     gap: 6px;
   }
 
@@ -572,9 +581,15 @@ img {
   .mobile-first-row .title-time .time-ago {
     display: none;
   }
-  
+
   .second-row.mobile-second-row .minutes-ago-text {
     display: unset;
+  }
+
+  .product-price-and-specs .ppas-price,
+  .product-price-and-specs .ppas-starting,
+  .product-price-and-specs .ppas-offers {
+    text-align: left;
   }
 }
 
@@ -595,7 +610,6 @@ img {
   }
   .second-row.mobile-second-row {
     gap: 10px;
-  
   }
   .second-row.mobile-second-row .products-specs {
     gap: 6px;
@@ -610,4 +624,3 @@ img {
     margin-bottom: 7px;
   }
 }
-
