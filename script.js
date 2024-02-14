@@ -11,7 +11,7 @@ const BADGE_CONFIG = {
 
 const validBadgesKeys = Object.keys(BADGE_CONFIG);
 
-const MBL_BREAK_POINT = 500;
+const MBL_BREAK_POINT = 700;
 const DESC_LIMIT_PC = 180;
 const DESC_LIMIT_MB = 100;
 
@@ -117,7 +117,6 @@ const db = [
     isLockedIcon: false,
   },
 ];
-
 
 const getOneProductBadge = (type) => {
   const _type = validBadgesKeys.includes(type) ? type : fbBadge;

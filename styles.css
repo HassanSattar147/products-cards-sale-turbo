@@ -445,7 +445,7 @@ img {
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 700px) {
   .minutes-ago-text {
     text-align: left;
   }
