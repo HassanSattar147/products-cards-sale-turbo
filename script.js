@@ -282,14 +282,15 @@ const renderProductCard = ({
               </div>
               <span>${condition}</span>
             </div>
-            ${availableAmount == 0
-      ? `<span>${soldTime || '&nbsp;'}</span>`
+            
+          </div>
+        </div>
+        ${availableAmount == 0
+      ? `<span class="sold-time">${soldTime || '&nbsp;'}</span>`
       : availableAmount == 1
         ? `<span>&nbsp;</span>`
         : `<span class="color-gray">${availableAmount} Available</span>`
     }
-          </div>
-        </div>
         <p class="product-details-para">"${description.substring(0, DESC_LIMIT_MB)}${isDescLong ? ' [...]' : ''}"</p>
       </div>
     </div>

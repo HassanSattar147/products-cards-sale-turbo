@@ -230,7 +230,12 @@ img {
   font-size: 13px;
   font-weight: 500;
 }
-.products-specs > span {
+/* .products-specs > span {
+  font-size: 13px;
+  font-weight: 500;
+  color: #c91414;
+} */
+.sold-time {
   font-size: 13px;
   font-weight: 500;
   color: #c91414;
@@ -511,7 +516,7 @@ img {
   }
   .cards-grid-container {
     grid-template-columns: 1fr;
-    padding: 0 5px;
+    padding: 0 10px;
     gap: 16px;
   }
   .desktop-second-row,
