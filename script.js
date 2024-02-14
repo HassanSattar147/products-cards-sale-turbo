@@ -212,9 +212,9 @@ const renderProductCard = ({
             <span>${condition}</span>
           </div>
           ${availableAmount == 0
-      ? `<span>${soldTime || '&nbsp;'}</span>`
+      ? `<span class="sold-time">${soldTime || '&nbsp;'}</span>`
       : availableAmount == 1
-        ? `<span>&nbsp;</span>`
+        ? `<span class="sold-time">&nbsp;</span>`
         : `<span class="color-gray">${availableAmount} Available</span>`
     }
           
@@ -288,7 +288,7 @@ const renderProductCard = ({
         ${availableAmount == 0
       ? `<span class="sold-time">${soldTime || '&nbsp;'}</span>`
       : availableAmount == 1
-        ? `<span>&nbsp;</span>`
+        ? `<span class="sold-time">&nbsp;</span>`
         : `<span class="color-gray">${availableAmount} Available</span>`
     }
         <p class="product-details-para">"${description.substring(0, DESC_LIMIT_MB)}${isDescLong ? ' [...]' : ''}"</p>
