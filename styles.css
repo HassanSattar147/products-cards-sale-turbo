@@ -566,7 +566,7 @@ img {
   }
 }
 
-@media screen and (max-width: 390px) {
+@media screen and (max-width: 389px) {
   .mobile-first-row .title-time .product-title {
     white-space: unset;
   }
