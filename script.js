@@ -11,6 +11,10 @@ const BADGE_CONFIG = {
 
 const validBadgesKeys = Object.keys(BADGE_CONFIG);
 
+const DESC_LIMIT_PC = 180;
+const DESC_LIMIT_MB = 100;
+const DESC_LIMIT = window.innerWidth > 700 ? DESC_LIMIT_PC : DESC_LIMIT_MB;
+
 const db = [
   {
     badges: ['ai', 'instant', 'negotiable'],
@@ -25,7 +29,7 @@ const db = [
     condition: "Excellent",
     price: "$ 1399.99",
     isOfferAccepted: true,
-    soldTime: "",
+    soldTime: "Sold out within 10 Minutes.",
     description: `This phone has several surface scratches and dings, notably some scratches in the glass on the upper left front corner and dings/chips in the metal on the bottom corners and around. This phone has several surface scratches and dings, notably some scratches in the glass on the upper left front corner and dings/chips in the metal on the bottom corners and around.`,
     accordions: [
       `$4.00 Recent drop, 23 minutes ago.`,
@@ -33,7 +37,7 @@ const db = [
     ],
     originalPrice: `(Original price: $1410.00)`,
     footerTexts: [`Cocosprinkles: 12345 (99.8%)`, `Low Trust`, `Brooklyn, NY`],
-    isStartingBid: true,
+    isStartingBid: false,
     isLockedIcon: true,
   },
   {
@@ -151,7 +155,7 @@ const renderProductCard = ({
   isLockedIcon
 }) => {
 
-  const isDescLong = description.length >= 180;
+  const isDescLong = description.length >= DESC_LIMIT;
 
   return `
 <div class="card-container">
@@ -208,7 +212,7 @@ const renderProductCard = ({
           <span class="ppas-offers">${isOfferAccepted ? 'Offers Accepted' : ''}</span>
         </div>
       </div>
-      <p class="product-details-para">${description.substring(0, 180)}${isDescLong ? '[...]' : ''}</p>
+      <p class="product-details-para">${description.substring(0, DESC_LIMIT_PC)}${isDescLong ? '[...]' : ''}</p>
     </div>
     <div class="mobile-first-row">
       <div class="left">
@@ -263,7 +267,7 @@ const renderProductCard = ({
             <span>${soldTime|| '&nbsp;'}</span>
           </div>
         </div>
-        <p class="product-details-para">${description.substring(0, 180)}${isDescLong ? '[...]' : ''}</p>
+        <p class="product-details-para">${description.substring(0, DESC_LIMIT_MB)}${isDescLong ? '[...]' : ''}</p>
       </div>
     </div>
     <div class="third-container">

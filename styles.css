@@ -156,6 +156,7 @@ img {
 .minutes-ago-text {
   font-size: 12px;
   color: #008000;
+  text-align: right;
 }
 .num-of-pics-card {
   min-width: 40px;
@@ -422,7 +423,7 @@ img {
 
 /* Media Queries */
 
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 1320px) {
   .cards-grid-container {
     grid-template-columns: 1fr 1fr;
   }
@@ -438,6 +439,9 @@ img {
 }
 
 @media screen and (max-width: 700px) {
+  .minutes-ago-text {
+    text-align: left;
+  }
   .product-badge {
     font-size: 10px;
   }
@@ -483,5 +487,37 @@ img {
   }
   .second-row-flex {
     padding: 0;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .mobile-first-row .product-image {
+    height: 130px;
+  }
+  .product-title {
+    line-height: 19px;
+    margin-bottom: 4px;
+  }
+  .second-row.mobile-second-row .title-and-prices {
+    gap: 6px;
+  }
+  .product-price-and-specs .ppas-price {
+    padding-top: 2px;
+    line-height: 21px;
+  }
+  .second-row.mobile-second-row {
+    gap: 14px;
+  }
+  .second-row.mobile-second-row .products-specs {
+    gap: 6px;
+  }
+  .second-row.mobile-second-row .product-details-para {
+    margin-top: -5px;
+  }
+  .third-container {
+    padding-top: 10px;
+  }
+  .price-drops > div:first-child {
+    margin-bottom: 7px;
   }
 }
