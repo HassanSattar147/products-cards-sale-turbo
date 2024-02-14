@@ -547,6 +547,7 @@ img {
     flex-direction: column;
   }
   .product-price-and-specs .ppas-price {
+    margin-top: 1px;
     line-height: 21px;
   }
   .product-price-and-specs {
@@ -598,6 +599,7 @@ img {
 
   .product-price-and-specs .ppas-price {
     line-height: unset;
+    padding-top: 0;
   }
   .product-price-and-specs .ppas-price,
   .product-price-and-specs .ppas-starting,
