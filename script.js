@@ -11,7 +11,7 @@ const BADGE_CONFIG = {
 
 const validBadgesKeys = Object.keys(BADGE_CONFIG);
 
-const MBL_BREAK_POINT = 350;
+const MBL_BREAK_POINT = 730;
 const DESC_LIMIT_PC = 180;
 const DESC_LIMIT_MB = 100;
 
@@ -38,9 +38,9 @@ const db = [
     ],
     originalPrice: `(Original price: $1410.00)`,
     footerTexts: [`Cocosprinkles: 12345 (99.8%)`, `Low Trust`, `Brooklyn, NY`],
-    isStartingBid: true,
-    isLockedIcon: true,
-    info: `Some extra text here!`,
+    isStartingBid: false,
+    isLockedIcon: false,
+    info: `Submit your best offer - This Item has been relisted, seller is eager to sell it.`,
   },
   {
     badges: ['ai', 'relisted', 'instant'],
@@ -240,7 +240,12 @@ const renderProductCard = ({
       </div>
       <div class="second-row mobile-second-row">
         <div class="title-and-prices">
-          <span class="product-title">${title}</span>
+          <div class="title-time">
+            <span class="product-title">${title}</span>
+            <div class="time-ago">
+              ${timeAgo}
+            </div>
+          </div>
           <div class="not-working-outer">
             <div class="not-working-inner">
               ${type}
@@ -250,14 +255,14 @@ const renderProductCard = ({
               <span class="tooltiptext">${tooltip}</span>
             </span>
           </div>
-          <span class="minutes-ago-text">2 minutes ago</span>
+          <span class="minutes-ago-text">${timeAgo}</span>
+        </div>
+        <div class="second-row-flex">
           <div class="product-price-and-specs">
             <span class="ppas-price">${price}</span>
             ${isStartingBid ? '<span class="ppas-starting">(Starting Bid)</span>' : ''}
             <span class="ppas-offers">${isOfferAccepted ? 'Offers Accepted' : ''}</span>
           </div>
-        </div>
-        <div class="second-row-flex">
           <div class="products-specs">
             <div>
               <div class="spec-img-container">

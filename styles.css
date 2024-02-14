@@ -439,6 +439,36 @@ img {
   font-weight: 400 !important;
 }
 
+.second-row.mobile-second-row .second-row-flex .product-price-and-specs {
+  order: 2;
+}
+
+.second-row.mobile-second-row .second-row-flex .products-specs {
+  order: 1;
+}
+
+.mobile-first-row .title-time {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.mobile-first-row .title-time .product-title {
+  flex: 1;
+}
+
+.mobile-first-row .title-time .time-ago {
+  font-size: 14px;
+  color: #008000;
+  text-align: right;
+  min-width: 110px;
+}
+
+.second-row.mobile-second-row .minutes-ago-text {
+  display: none;
+}
+
 /* Media Queries */
 
 @media screen and (max-width: 1320px) {
@@ -459,14 +489,14 @@ img {
   }
 }
 
-@media screen and (max-width: 768px) {
-  .cards-grid-container {
-    grid-template-columns: 1fr;
-    gap: 16px;
+@media screen and (max-width: 730px) {
+  .mobile-first-row .product-image {
+    height: 130px;
   }
-}
-
-@media screen and (max-width: 350px) {
+  .product-title {
+    line-height: 19px;
+    margin-bottom: 4px;
+  }
   .minutes-ago-text {
     text-align: left;
   }
@@ -485,7 +515,7 @@ img {
   .mobile-second-row {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 14px;
     padding-top: 0;
   }
   .mobile-first-row {
@@ -516,6 +546,37 @@ img {
   .second-row-flex {
     padding: 0;
   }
+  .second-row.mobile-second-row .product-details-para {
+    margin-top: 0;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .second-row.mobile-second-row {
+    gap: 6px;
+    background-color: orangered;
+  }
+
+  .second-row.mobile-second-row .second-row-flex {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .second-row.mobile-second-row .second-row-flex .product-price-and-specs {
+    order: 1;
+  }
+
+  .second-row.mobile-second-row .second-row-flex .products-specs {
+    order: 2;
+  }
+
+  .mobile-first-row .title-time .time-ago {
+    display: none;
+  }
+  
+  .second-row.mobile-second-row .minutes-ago-text {
+    display: unset;
+  }
 }
 
 @media screen and (max-width: 350px) {
@@ -534,13 +595,14 @@ img {
     line-height: 21px;
   }
   .second-row.mobile-second-row {
-    gap: 14px;
+    gap: 10px;
+  
   }
   .second-row.mobile-second-row .products-specs {
     gap: 6px;
   }
   .second-row.mobile-second-row .product-details-para {
-    margin-top: -5px;
+    margin-top: 0;
   }
   .third-container {
     padding-top: 10px;
@@ -549,3 +611,4 @@ img {
     margin-bottom: 7px;
   }
 }
+
