@@ -21,7 +21,7 @@ const db = [
     img: "0.png",
     timeAgo: '20 minutes ago',
     imagesCount: 5,
-    title: "iPhone SE 2022",
+    title: "iPhone 15 Pro Max",
     type: "Brand New",
     tooltip: '"Device has a cracked screen with a good LCD and is fully functional. SOLD AS IS. NO RETURNS. Please reference EXAMPLE photos and listing for further details."',
     storage: "256 GB",
