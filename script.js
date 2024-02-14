@@ -11,7 +11,7 @@ const BADGE_CONFIG = {
 
 const validBadgesKeys = Object.keys(BADGE_CONFIG);
 
-const MBL_BREAK_POINT = 768;
+const MBL_BREAK_POINT = 350;
 const DESC_LIMIT_PC = 180;
 const DESC_LIMIT_MB = 100;
 const DESC_LIMIT = window.innerWidth > MBL_BREAK_POINT ? DESC_LIMIT_PC : DESC_LIMIT_MB;
@@ -31,6 +31,7 @@ const db = [
     price: "$ 1399.99",
     isOfferAccepted: true,
     soldTime: "Sold out within 10 Minutes.",
+    availableAmount: 0,
     description: `This phone has several surface scratches and dings, notably some scratches in the glass on the upper left front corner and dings/chips in the metal on the bottom corners and around. This phone has several surface scratches and dings, notably some scratches in the glass on the upper left front corner and dings/chips in the metal on the bottom corners and around.`,
     accordions: [
       `$4.00 Recent drop, 23 minutes ago.`,
@@ -54,7 +55,8 @@ const db = [
     condition: "Excellent",
     price: "$ 699.99",
     isOfferAccepted: false,
-    soldTime: "Sold out within 10 Minutes.",
+    soldTime: "",
+    availableAmount: 1,
     description: `This phone has several surface scratches and dings, notably some scratches in the glass on the upper left front corner and dings/chips in the metal on the bottom corners and around. This phone has several surface scratches and dings, notably some scratches in the glass on the upper left front corner and dings/chips in the metal on the bottom corners and around.`,
     accordions: [
       `$4.00 Recent drop, 23 minutes ago.`,
@@ -79,6 +81,7 @@ const db = [
     price: "$ 349.99",
     isOfferAccepted: true,
     soldTime: "",
+    availableAmount: 2,
     description: `This phone has several surface scratches and dings, notably some scratches in the glass on the upper left front corner and dings/chips in the metal on the bottom corners and around. This phone has several surface scratches and dings, notably some scratches in the glass on the upper left front corner and dings/chips in the metal on the bottom corners and around.`,
     accordions: [
       `$4.00 Recent drop, 23 minutes ago.`,
@@ -103,6 +106,7 @@ const db = [
     price: "$ 749.99",
     isOfferAccepted: false,
     soldTime: "Sold out within 82 Minutes.",
+    availableAmount: 5,
     description: `This phone has several surface scratches and dings, notably some scratches in the glass on the upper left front corner and dings/chips in the metal on the bottom corners and around. This phone has several surface scratches and dings, notably some scratches in the glass on the upper left front corner and dings/chips in the metal on the bottom corners and around.`,
     accordions: [
       `$4.00 Recent drop, 23 minutes ago.`,
@@ -153,7 +157,8 @@ const renderProductCard = ({
   originalPrice,
   footerTexts,
   isStartingBid,
-  isLockedIcon
+  isLockedIcon,
+  availableAmount
 }) => {
 
   const isDescLong = description.length >= DESC_LIMIT;
@@ -205,7 +210,13 @@ const renderProductCard = ({
             </div>
             <span>${condition}</span>
           </div>
-          <span>${soldTime || '&nbsp;'}</span>
+          ${availableAmount == 0
+      ? `<span>${soldTime || '&nbsp;'}</span>`
+      : availableAmount == 1
+        ? `<span>&nbsp;</span>`
+        : `<span class="color-gray">${availableAmount} available</span>`
+    }
+          
         </div>
         <div class="product-price-and-specs">
           <span class="ppas-price">${price}</span>
@@ -265,7 +276,12 @@ const renderProductCard = ({
               </div>
               <span>${condition}</span>
             </div>
-            <span>${soldTime || '&nbsp;'}</span>
+            ${availableAmount == 0
+      ? `<span>${soldTime || '&nbsp;'}</span>`
+      : availableAmount == 1
+        ? `<span>&nbsp;</span>`
+        : `<span class="color-gray">${availableAmount} available</span>`
+    }
           </div>
         </div>
         <p class="product-details-para">${description.substring(0, DESC_LIMIT_MB)}${isDescLong ? '[...]' : ''}</p>
@@ -282,7 +298,7 @@ const renderProductCard = ({
       <div class="price-drop-outer">
         <div class="price-drops">
           ${accordions.map(x => {
-    return `
+      return `
 <div>
   <img src="./images/down-arrow.svg" alt="" />
   <span class="price-drop-details">
@@ -290,7 +306,7 @@ const renderProductCard = ({
   </span>
 </div>
 `
-  }).join('\n')
+    }).join('\n')
     }
           <div class="price-drop-and-original">
             <span class="original-price">
