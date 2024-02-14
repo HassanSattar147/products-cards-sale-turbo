@@ -554,7 +554,6 @@ img {
 @media screen and (max-width: 425px) {
   .second-row.mobile-second-row {
     gap: 6px;
-    background-color: orangered;
   }
 
   .second-row.mobile-second-row .second-row-flex {
