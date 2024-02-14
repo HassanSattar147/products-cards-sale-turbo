@@ -11,10 +11,9 @@ const BADGE_CONFIG = {
 
 const validBadgesKeys = Object.keys(BADGE_CONFIG);
 
-const MBL_BREAK_POINT = 350;
+const MBL_BREAK_POINT = 500;
 const DESC_LIMIT_PC = 180;
 const DESC_LIMIT_MB = 100;
-const DESC_LIMIT = window.innerWidth > MBL_BREAK_POINT ? DESC_LIMIT_PC : DESC_LIMIT_MB;
 
 const db = [
   {
@@ -158,6 +157,7 @@ const renderProductCard = ({
   availableAmount
 }) => {
 
+  const DESC_LIMIT = window.innerWidth > MBL_BREAK_POINT ? DESC_LIMIT_PC : DESC_LIMIT_MB;
   const isDescLong = description.length >= DESC_LIMIT;
 
   return `
@@ -329,4 +329,8 @@ const renderProductCard = ({
 `
 }
 
-document.querySelector('.cards-grid-container').innerHTML = db.map(renderProductCard).join('\n');
+const renderAllProductCards = () => {
+  document.querySelector('.cards-grid-container').innerHTML = db.map(renderProductCard).join('\n');
+}
+renderAllProductCards();
+window.addEventListener('resize', renderAllProductCards)
