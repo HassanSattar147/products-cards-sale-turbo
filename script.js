@@ -11,7 +11,7 @@ const BADGE_CONFIG = {
 
 const validBadgesKeys = Object.keys(BADGE_CONFIG);
 
-const MBL_BREAK_POINT = 730;
+const MBL_BREAK_POINT = 389;
 const DESC_LIMIT_PC = 180;
 const DESC_LIMIT_MB = 100;
 
@@ -291,7 +291,7 @@ const renderProductCard = ({
         ? `<span class="sold-time">&nbsp;</span>`
         : `<span class="color-gray">${availableAmount} Available</span>`
     }
-        <p class="product-details-para">"${description.substring(0, DESC_LIMIT_MB)}${isDescLong ? ' [...]' : ''}"</p>
+        <p class="product-details-para">"${description.substring(0, DESC_LIMIT)}${isDescLong ? ' [...]' : ''}"</p>
       </div>
     </div>
     <div class="third-container">
